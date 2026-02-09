@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Muskaan 💚</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #003d2b, #0b5d3b);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .page {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 0.8s ease;
+  }
+
+  .page.active { display: flex; }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  p {
+    max-width: 700px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  img {
+    width: 260px;
+    max-width: 90%;
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 0 0 25px rgba(0,255,170,0.35);
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 14px 34px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 12px;
+  }
+
+  .yes {
+    background: #00ffae;
+    color: #003d2b;
+    font-weight: bold;
+  }
+
+  .no {
+    background: #cccccc;
+    position: absolute;
+  }
+
+  .penguin {
+    font-size: 2.5rem;
+    animation: bounce 1.4s infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>This is intended for the love of my life, Muskaan 💚</h1>
+  <p>Before we go any further… let’s make sure this found the right person.</p>
+
+  <img src="photo1.jpg">
+
+  <button class="yes" onclick="nextPage(2)">Yes, this is Muskaan 🐧</button>
+  <button class="no" id="no1">No</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>You really are unreal ✨</h1>
+  <p>
+    Your eyes, your smile, the way your face lights up without you even trying —
+    every little detail about you is effortlessly beautiful.
+    You somehow manage to be gorgeous in every single moment.
+  </p>
+
+  <p><strong>Important question…</strong><br>
+  Are you Kashif’s girlfriend?</p>
+
+  <div class="gallery">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+
+  <button class="yes" onclick="nextPage(3)">Yes 💚</button>
+  <button class="no" id="no2">No</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1>Final question… 🐧💚</h1>
+
+  <p>
+    Would you like to take the pleasure of becoming
+    <strong>Kashif’s Valentine</strong>?
+    <br><br>
+    I promise laughter, love, late nights, stupid jokes,
+    penguins, green vibes, and a whole lot of us.
+  </p>
+
+  <div class="gallery">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+    <img src="photo6.jpg">
+    <img src="photo7.jpg">
+    <img src="photo8.jpg">
+   
