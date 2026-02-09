@@ -28,4 +28,208 @@
   .page.active { display: flex; }
 
   h1 { font-size: 2.2rem; margin-bottom: 15px; }
-  p  { max-width: 700px; font-size:
+  p  { max-width: 700px; font-size: 1.15rem; line-height: 1.6; margin-bottom: 25px; }
+
+  img {
+    width: 260px;
+    max-width: 90%;
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 0 0 25px rgba(0,255,170,0.35);
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 14px 34px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 12px;
+    user-select: none;
+  }
+
+  .yes {
+    background: #00ffae;
+    color: #003d2b;
+    font-weight: bold;
+    position: relative;
+    z-index: 2; /* ensure clickable */
+  }
+
+  .no {
+    background: #cccccc;
+    position: absolute;
+    left: 50%;
+    top: calc(100% - 120px);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .penguin {
+    font-size: 2.5rem;
+    animation: bounce 1.4s infinite;
+  }
+
+  .sparkles {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    margin-top: 8px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-8px); }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="penguin">🐧</div>
+  <h1>This is intended for the love of my life, Muskaan 💚</h1>
+  <p>Before we go any further… let’s make sure this found the right person.</p>
+
+  <img src="photo1.jpg" alt="Us">
+
+  <div>
+    <button class="yes" onclick="nextPage(2)">Yes, this is Muskaan 🐧</button>
+    <button class="no" id="no1">No</button>
+  </div>
+
+  <div class="sparkles">✨ Aston Martin green vibes only ✨</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="penguin">🐧</div>
+  <h1>You really are unreal ✨</h1>
+  <p>
+    Your eyes, your smile, the way your face lights up without you even trying —
+    every little detail about you is effortlessly beautiful.
+    You somehow manage to be gorgeous in every single moment.
+  </p>
+
+  <p><strong>Important question…</strong><br>
+  Are you Kashif’s girlfriend?</p>
+
+  <div class="gallery">
+    <img src="photo2.jpg" alt="Muskaan 1">
+    <img src="photo3.jpg" alt="Muskaan 2">
+  </div>
+
+  <div>
+    <button class="yes" onclick="nextPage(3)">Yes 💚</button>
+    <button class="no" id="no2">No</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="penguin">🐧🐧🐧</div>
+  <h1>Final question… 💚</h1>
+
+  <p>
+    Would you like to take the pleasure of becoming
+    <strong>Kashif’s Valentine</strong>?
+    <br><br>
+    I promise laughter, love, late nights, stupid jokes,
+    penguins, green vibes, and a whole lot of us.
+  </p>
+
+  <div class="gallery">
+    <img src="photo4.jpg" alt="Pic 4">
+    <img src="photo5.jpg" alt="Pic 5">
+    <img src="photo6.jpg" alt="Pic 6">
+    <img src="photo7.jpg" alt="Pic 7">
+    <img src="photo8.jpg" alt="Pic 8">
+    <img src="photo9.jpg" alt="Pic 9">
+    <img src="photo10.jpg" alt="Pic 10">
+  </div>
+
+  <div style="margin-top:18px;">
+    <button class="yes" onclick="finalYes()">YESSS 💚🐧</button>
+    <button class="no" id="no3">No</button>
+  </div>
+</div>
+
+<script>
+  function nextPage(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page' + n);
+    if (target) target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function makeNoRun(btnId) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+
+    // start somewhere safe
+    btn.style.left = "50%";
+    btn.style.top = "80%";
+    btn.style.transform = "translateX(-50%)";
+
+    const run = () => {
+      const padding = 20;
+      const w = 120, h = 55; // approx button size
+      const x = Math.random() * (window.innerWidth - w - padding*2) + padding;
+      const y = Math.random() * (window.innerHeight - h - padding*2) + padding;
+      btn.style.left = x + "px";
+      btn.style.top  = y + "px";
+      btn.style.transform = "translateX(0)";
+    };
+
+    btn.addEventListener("mouseover", run);
+    btn.addEventListener("touchstart", (e) => { e.preventDefault(); run(); }, { passive:false });
+  }
+
+  function finalYes() {
+    document.body.innerHTML = `
+      <div style="
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:30px;
+        background: linear-gradient(135deg, #003d2b, #0b5d3b);
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+      ">
+        <div>
+          <div style="font-size:3rem;">🐧💚🐧</div>
+          <h1 style="font-size:2.6rem;margin:14px 0;">Happy Valentine’s, Muskaan 💚</h1>
+          <p style="max-width:720px;font-size:1.2rem;line-height:1.7;opacity:0.95;margin:0 auto;">
+            You’re my favourite person. I love you more than you know — your smile, your eyes,
+            the way you look at me, and the way you make everything feel warm and safe.
+            Thank you for being you… and for being mine.
+          </p>
+          <div style="margin-top:20px;font-size:1.2rem;">— Kashif 🫶</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Enable the "No" run-away on all pages
+  makeNoRun("no1");
+  makeNoRun("no2");
+  makeNoRun("no3");
+</script>
+
+</body>
+</html>
+
